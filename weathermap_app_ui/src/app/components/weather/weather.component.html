@@ -1,0 +1,27 @@
+<div class="nav-control" [formGroup]="formGroup">
+    <mat-form-field appearance="fill">
+        <mat-label>Country</mat-label>
+        <mat-select formControlName="countryCode">
+          <mat-option *ngFor="let item of countryCodeData" [value]="item.code">
+            {{item.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="countryCodeControl?.hasError('required')">This field is required.</mat-error>
+      </mat-form-field>
+    <mat-form-field>
+        <mat-label>Zip code</mat-label>
+        <input matInput formControlName="zipCode" required>
+        <mat-error *ngIf="zipCodeControl?.hasError('required') || zipCodeControl?.hasError('pattern')">This field is required.</mat-error>
+        <mat-error *ngIf="zipCodeControl?.hasError('pattern')">Only numbers.</mat-error>
+    </mat-form-field>
+
+    <button mat-fab color="primary" (click)="onClick($event)">
+        <mat-icon>search</mat-icon>
+    </button>
+</div>
+
+<div class="history">
+  <app-history 
+    *ngFor="let history of weatherApiService.histories"
+    [history]="history"></app-history>
+</div>

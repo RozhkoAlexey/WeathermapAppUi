@@ -1,0 +1,5 @@
+<div class="error-container" *ngIf="errors.length">
+    <mat-card *ngFor="let error of errors">
+        <mat-card-content>{{error}}</mat-card-content>
+    </mat-card>
+</div>

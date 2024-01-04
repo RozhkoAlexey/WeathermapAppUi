@@ -1,0 +1,19 @@
+.history-card{
+    width: 350px;
+    margin: 5px;
+
+    mat-card-header {
+        position: relative;
+
+        mat-icon {
+            position: absolute;
+            color: red;
+            right: 0;
+            font-size: 13px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}

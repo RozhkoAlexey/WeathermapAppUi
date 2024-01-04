@@ -1,0 +1,13 @@
+.nav-control, .history{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+mat-form-field {
+    width: 400px;
+    margin-right: 10px;
+}
+mat-form-field:first-child {
+    width: 150px;
+}

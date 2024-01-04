@@ -1,0 +1,13 @@
+<mat-card class="history-card">
+    <mat-card-header>
+        <mat-card-title-group>
+            <mat-card-title>{{history.weather.name}} {{history.weather.main.temp | number:'1.0-0'}}℃</mat-card-title>
+            <mat-card-subtitle>{{history.weather.weather | weatherDescription }}</mat-card-subtitle>
+            <img mat-card-sm-image [src]="history.weather.weather | formatIcon">
+        </mat-card-title-group>
+        <mat-icon (click)="onClose(history.id)">close</mat-icon>
+    </mat-card-header>
+    <mat-card-content>
+        {{history.createDt | date: 'dd.MM.yyyy hh:mm'}}
+    </mat-card-content>
+</mat-card>

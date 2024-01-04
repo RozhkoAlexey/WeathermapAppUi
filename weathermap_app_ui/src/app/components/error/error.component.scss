@@ -1,0 +1,15 @@
+.error-container {
+    position: fixed;
+    //border: 1px solid black;
+    right: 30px;
+    bottom: 30px;
+
+    mat-card{
+        width: 300px;
+        margin-top: 5px;
+
+        mat-card-content{
+            background-color: #F08080;
+        }
+    }
+}

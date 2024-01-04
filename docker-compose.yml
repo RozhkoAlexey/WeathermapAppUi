@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+  weathermapapp:
+    image: weathermapapp
+    container_name: weather_api
+    ports:
+      - 7000:80
+    build:
+      context: .
+      dockerfile: WeathermapApp/Dockerfile
+    depends_on:
+      - sql-server-db
+  weathermapapp-ui:
+    image: weathermapapp-ui
+    container_name: weather_ui
+    build:
+      context: ./weathermap-app-ui
+      dockerfile: ./Dockerfile
+    ports:
+      - "7001:4200" 
+    depends_on:
+      - weathermapapp
+  sql-server-db:
+    container_name: weather_db
+    image: mcr.microsoft.com/mssql/server
+    ports:
+      - "2433:1433"
+    environment:
+      MSSQL_SA_PASSWORD: "BC84d04e9_adb3"
+      ACCEPT_EULA: "Y"
+  
